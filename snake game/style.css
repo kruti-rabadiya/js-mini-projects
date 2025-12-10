@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* background colors */
+  --bg--primary-color: #0c0c0c;
+  --bg-fill-color: #efefef;
+  --bg-food-color: #92076f;
+
+  /* text colors */
+  --text-primary-color: #f0f0f0;
+
+  /* Spacing variables */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+  --space-3xl: 48px;
+
+  /* border colors */
+  --border-primary-color: #333333;
+
+  /* Border Radious */
+  --border-radious-xs: 4px;
+  --border-radious-sm: 8px;
+  --border-radious-md: 12px;
+  --border-radious-lg: 16px;
+  --border-radious-xl: 20px;
+  --border-radious-2xl: 24px;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  text-transform: capitalize;
+}
+html {
+  background-color: var(--bg--primary-color);
+  color: var(--text-primary-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+main,
+section {
+  width: 100%;
+  height: 100%;
+}
+section {
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--space-lg);
+}
+section .infos {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.info {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border-primary-color);
+  border-radius: var(--border-radious-sm);
+}
+.board {
+  border: 1px solid var(--border-primary-color);
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+}
+.block {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border-primary-color);
+}
+.fill{
+  background-color: var(--bg-fill-color);
+}
+.food{
+  background-color: var(--bg-food-color);
+}
+.model{
+  height:100vh ;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: #35353587;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.start-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+.btn{
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--border-radious-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:hover{
+  transform: scale(1.1);
+}
+
+.game-over{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
