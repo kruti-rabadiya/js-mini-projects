@@ -25,16 +25,8 @@ let food = {
   x: Math.floor(Math.random() * rows),
   y: Math.floor(Math.random() * cols),
 };
-// for (let i = 0; i < rows * cols; i++) {
-//   const block = document.createElement('div');
-//   block.classList.add('block');
-//   board.appendChild(block);
-// }
-let snake = [
-  { x: 1, y: 3 },
-  // { x: 1, y: 4 },
-  // { x: 1, y: 5 },
-];
+
+let snake = [{ x: 1, y: 3 }];
 
 let direction = "right";
 const blocks = [];
@@ -43,7 +35,6 @@ for (let r = 0; r < rows; r++) {
     const block = document.createElement("div");
     block.classList.add("block");
     board.appendChild(block);
-    // block.innerHTML = `${r} ${c}`;
     blocks[`${r} ${c}`] = block;
   }
 }
@@ -103,11 +94,7 @@ function restartGame() {
   });
   direction = "right";
   model.style.display = "none";
-  snake = [
-    { x: 1, y: 3 },
-    // { x: 1, y: 4 },
-    // { x: 1, y: 5 },
-  ];
+  snake = [{ x: 1, y: 3 }];
   food = {
     x: Math.floor(Math.random() * rows),
     y: Math.floor(Math.random() * cols),
@@ -117,29 +104,24 @@ function restartGame() {
   highscoreElement.innerText = ` ${highscore}`;
   time = `00:00`;
   timeElement.innerText = time;
-  intervalId=setInterval(() => {
+  intervalId = setInterval(() => {
     renderSnake();
   }, 200);
 }
 
-// intervalId=setInterval(() => {
-//   renderSnake();
-// }, 200);
-
 startBtn.addEventListener("click", () => {
   model.style.display = "none";
   timerIntervalId = setInterval(() => {
-    let [min, sec] = time.split(":").map(Number)
-    if(sec ==59){
-      min +=1
-      sec =0
+    let [min, sec] = time.split(":").map(Number);
+    if (sec == 59) {
+      min += 1;
+      sec = 0;
+    } else {
+      sec += 1;
     }
-    else{
-      sec +=1
-    }
-    time = `${min}:${sec}`
-    timeElement.innerText =time
-  },1000);
+    time = `${min}:${sec}`;
+    timeElement.innerText = time;
+  }, 1000);
   intervalId = setInterval(() => {
     renderSnake();
   }, 200);
